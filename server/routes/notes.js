@@ -1,10 +1,10 @@
 
 const express = require('express');
 const router = express.Router();
-const Todo = require("../models/Todo");
+const Notes = require("../models/Notes");
 
 router.get("/", async (_req, res) => {
-    Todo
+    Notes
         .find()
         .then(ans => {
             res.status(200).json(ans);
@@ -13,18 +13,16 @@ router.get("/", async (_req, res) => {
 });
 
 router.post("/", async (req, res) => {
-    const {title, author, deadline, done} = req.body;
+    const {text, author} = req.body;
 
-    const new_todo = new Todo({
-        title: title,
+    const new_notes = new Notes({
         author: author,
-        deadline: deadline,
-        done: done
+        text: text
     });
 
     try{
-        await new_todo.save()
-        res.status(200).json(new_todo)
+        await new_notes.save()
+        res.status(200).json(new_notes)
     } catch(err) {
         res.status(500).send(err)
     }

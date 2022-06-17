@@ -11,6 +11,7 @@ app.use(cors());
 // use routs
 
 app.use('/todo', require('./routes/todo'));
+app.use('/notes', require('./routes/notes'));
 
 // db config
 
