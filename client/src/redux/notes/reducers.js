@@ -5,7 +5,7 @@ export const notesReducer = (state = [], action) => {
     const payload = action.payload;
     switch(action.type) {
         case types.NOTES_GET:
-            return [...state];
+            return [...payload];
         
         case types.NOTES_DELETE:
             return state.filter(el => el._id !== payload._id);

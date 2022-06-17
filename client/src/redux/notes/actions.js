@@ -1,18 +1,22 @@
-export const ADD_NOTE = 'ADD_NOTE'
-export const DELETE_NOTE = 'DELETE_NOTE'
-export const EDIT_NOTE = 'EDIT_NOTE'
+import types from './types';
 
-export const addNoteAction = (payload) => ({
-    type: 'ADD_NOTE',
-    payload
-})
+export const notesGetAction = (notes) => ({
+    type: types.NOTES_GET,
+    payload: notes
+});
 
-export const deleteNoteAction = (payload) => ({
-    type: 'DELETE_NOTE',
-    payload
-})
+export const notesAddAction = (newNotes) => ({
+    type: types.NOTES_ADD,
+    payload: newNotes
+});
 
-export const editNoteAction = (payload) => ({
-    type: 'EDIT_NOTE',
-    payload
-})
+export const notesEditAction = (notes) => ({
+    type: types.NOTES_EDIT,
+    payload: notes
+});
+
+
+export const notesDeleteAction = (notes) => ({
+    type: types.NOTES_DELETE,
+    payload: notes
+});
