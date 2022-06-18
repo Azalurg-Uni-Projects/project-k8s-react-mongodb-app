@@ -19,8 +19,8 @@ const TodoAdd = ({history, addTodo}, props) => {
             <Formik
                 initialValues={{
                     title: "",
-                    author: "",
-                    deadline: new Date().toLocaleDateString('pl-PL'),
+                    author: "Guest",
+                    deadline: new Date().toISOString().split('T')[0],
                     done: false
                 }}
                 onSubmit={(values) => handleSubmit(values)}
@@ -45,8 +45,8 @@ const TodoAdd = ({history, addTodo}, props) => {
                     <li>
                         <label htmlFor="done">Done: </label>  
                         <Field name="done" as="select" id="done">  
-                            <option value="True">Yes</option>
-                            <option value="False">No</option>
+                            <option value="true">Yes</option>
+                            <option value="false">No</option>
                         </Field> 
                         <ErrorMessage name="done" component="p" className='Delete'/> 
                     </li>
