@@ -13,4 +13,44 @@ export const getNotesList = () => {
     }
 }
 
-// todo ...
+export const addNotes = (notes) => {
+    return async dispatch => {
+        try {
+            const response = await axios.post(`http://localhost:5000/notes`, notes);
+            if(response.status === 200) 
+                dispatch(actions.notesAddAction(response.data));
+        } catch(ex) {
+            console.log(ex)
+        }
+    }
+}
+
+export const editNotes = (notes) => {
+    return async dispatch => {
+        try {
+            const response = await axios.put(`http://localhost:5000/notes/${notes._id}`, notes);
+            if(response.status === 201){
+                dispatch(actions.notesEditAction(response.data));
+            } else {
+                console.log(response.status);
+            }
+                
+        } catch(ex) {
+            console.log(ex)
+        }
+    }
+}
+
+export const deleteNotes = (notes) => {
+    return async dispatch => {
+        try {
+            const response = await axios.delete(`http://localhost:5000/notes/${notes._id}`);
+            if(response.status === 200) 
+                dispatch(actions.notesDeleteAction(response.data));
+        } catch(ex) {
+            console.log(ex)
+        }
+    }
+}
+
+// notes ...
