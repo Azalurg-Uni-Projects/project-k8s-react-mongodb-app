@@ -9,6 +9,8 @@ import {
 import TodoList from './components/todo/todoList';
 import TodoAdd from './components/todo/todoAdd';
 import Home from './components/core/Home';
+import NotesList from './components/notes/notesList';
+import NotesAdd from './components/notes/notesAdd';
 
 function App() {
   return (
@@ -34,7 +36,9 @@ function App() {
           </ul>
         </nav>
         <Routes>
+          <Route path="/notes/add" element={<NotesAdd/>} />
           <Route path="/todo/add" element={<TodoAdd/>} />
+          <Route path="/notes" element={<NotesList/>} />
           <Route path="/todo" element={<TodoList/>} />
           <Route path="/" element={<Home/>} />
         </Routes>
