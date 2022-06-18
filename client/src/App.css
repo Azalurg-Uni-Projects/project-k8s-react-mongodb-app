@@ -90,3 +90,20 @@ ul{
   display: list-item;
   text-align:left
 }
+
+textarea{
+  color: #C5C6C7;
+  background-color: #1F2833;
+  border: 2px solid #24A29E;
+  font-size: 16px;
+  padding: 8px 16px;
+  text-decoration: none;
+  display: inline-block;
+  margin: 4px 2px;
+  height: 12rem;
+  width: 18rem;
+}
+
+textarea:focus {
+  background-color: #1F2833
+}
