@@ -31,8 +31,6 @@ export const editNotes = (notes) => {
             const response = await axios.put(`http://localhost:5000/notes/${notes._id}`, notes);
             if(response.status === 201){
                 dispatch(actions.notesEditAction(response.data));
-            } else {
-                console.log(response.status);
             }
                 
         } catch(ex) {
