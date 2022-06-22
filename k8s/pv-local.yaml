@@ -6,8 +6,9 @@ metadata:
 spec:
   storageClassName: manual
   capacity:
-    storage: 64Mi
+    storage: 128Mi
   accessModes:
     - ReadWriteOnce
   hostPath:
-    path: "d://k8spv"
+    path: "~/k8spv-project"
+    type: DirectoryOrCreate
