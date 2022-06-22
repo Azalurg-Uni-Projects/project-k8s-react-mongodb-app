@@ -28,8 +28,8 @@ spec:
    
               service:
    
-                name: web
+                name: client-deployment
    
                 port:
    
-                  number: 8080
+                  number: 80
