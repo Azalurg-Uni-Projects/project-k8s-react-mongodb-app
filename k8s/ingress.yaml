@@ -8,7 +8,7 @@ metadata:
     
 spec:
   rules:
-  - host: "todo-app.info"
+  - host: "todo.app.com"
     http:
       paths:
         - path: /?(.*)

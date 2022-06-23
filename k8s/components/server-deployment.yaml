@@ -27,5 +27,7 @@ spec:
               value: "Kubernetes"
             - name: API_PORT
               value: "5000"
+            - name: MONGO_HOST
+              value: "127.0.0.1"
             - name: REDIS_PORT
               value: "6379"
