@@ -42,7 +42,7 @@ function App() {
           <Route path="/todo" element={<TodoList/>} />
           <Route path="/" element={<Home/>} />
         </Routes>
-        <p>Version 1.1</p>
+        <p>Version 1.5</p>
       </div>
     </Router>
   );

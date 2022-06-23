@@ -52,6 +52,7 @@ async function setCache(key, val, res) {
 async function deleteCache(key, res) {
   try{
     await client.del(key);
+    await client.set(key, {})
   }
   catch(err){
     res.status(500).json(err.message);
@@ -83,7 +84,12 @@ app.get("/last/todo", async (req, res) => {
       .find()
       .then(async function (ans){
           ans = ans.sort((a, b) => {return new Date(b.date) - new Date(a.date)})
-          const response = await setCache("todo", ans[0], res);
+          if (!ans[0]){
+            const response = await setCache("todo", {}, res);
+          } else {
+            const response = await setCache("todo", ans[0], res);
+          }
+          
           res.status(200).json(JSON.parse(response))
         })
       .catch(err => res.status(500).json(err));
@@ -101,7 +107,11 @@ app.get("/last/notes", async (req, res) => {
       .then(async function (ans){
           ans = ans.sort((a, b) => {return new Date(b.date) - new Date(a.date)})
           const response =await setCache("notes", ans[0], res);
-          res.status(200).json(JSON.parse(response))
+          if (!ans[0]){
+            const response = await setCache("todo", {}, res);
+          } else {
+            const response = await setCache("todo", ans[0], res);
+          }
         })
       .catch(err => res.status(500).json(err));
   } else {
@@ -223,5 +233,7 @@ app.listen(API_PORT, async () => {
   .catch(error => console.error('Error connecting to MongoDB', error));
   console.log("Try to connect");
   await client.connect();
+  await client.set("todo", JSON.stringify({init: true}));
+  await client.save("notes", JSON.stringify({init: true}));
    console.log(`Server running on PORT ${API_PORT}`);
 });

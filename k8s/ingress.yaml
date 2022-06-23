@@ -19,10 +19,10 @@ spec:
               port:
                 number: 80
             
-        # - path: /api/?(.*)
-        #   pathType: Prefix
-        #   backend:
-        #     service:
-        #       name: server-service-clusterip
-        #       port:
-        #         number: 5000
+        - path: /api/?(.*)
+          pathType: Prefix
+          backend:
+            service:
+              name: server-service-clusterip
+              port:
+                number: 5000
