@@ -14,24 +14,42 @@ spec:
     spec:
       containers:
         - name: server
-          image: azalurg/node-api-todo:1.1
+          image: azalurg/node-api-todo:1.2
           imagePullPolicy: IfNotPresent
           ports:
             - containerPort: 5000
           env:
             - name: MONGO_HOST
-              value: "127.0.0.1"
+              valueFrom:
+                configMapKeyRef:
+                  name: configmap
+                  key: MONGO_HOST
             - name: MONGO_PORT
-              value: "27017"
+              valueFrom:
+                configMapKeyRef:
+                  name: configmap
+                  key: MONGO_PORT
             - name: MONGO_DATABASE
-              value: "Kubernetes"
-            - name: API_PORT
-              value: "5000"
-            - name: MONGO_HOST
-              value: "127.0.0.1"
+              valueFrom:
+                configMapKeyRef:
+                  name: configmap
+                  key: MONGO_DATABASE
+            - name: REDIS_HOST
+              valueFrom:
+                configMapKeyRef:
+                  name: configmap
+                  key: REDIS_HOST
             - name: REDIS_PORT
-              value: "6379"
-
+              valueFrom:
+                configMapKeyRef:
+                  name: configmap
+                  key: REDIS_PORT
+            - name: API_PORT
+              valueFrom:
+                configMapKeyRef:
+                  name: configmap
+                  key: API_PORT
+                  
 ---
 
 apiVersion: v1

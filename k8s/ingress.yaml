@@ -8,14 +8,14 @@ metadata:
     
 spec:
   rules:
-  - host: "todo.app.com"
+  - host: "todo-app-k8s.com"
     http:
       paths:
         - path: /?(.*)
           pathType: Prefix
           backend:
             service:
-              name: client-deployment
+              name: client-service-clusterip
               port:
                 number: 80
             

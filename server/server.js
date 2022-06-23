@@ -17,7 +17,7 @@ const MONGO_HOST = process.env.MONGO_HOST || "127.0.0.1";
 const MONGO_PORT = process.env.MONGO_PORT || 27017;
 const MONGO_DATABASE = process.env.MONGO_DATABASE || "Kubernetes";
 const API_PORT = process.env.API_PORT || 5000;
-const REDIS_HOST = process.env.REDISHOST || "127.0.0.1";
+const REDIS_HOST = process.env.REDIS_HOST || "127.0.0.1";
 const REDIS_PORT = process.env.REDIS_PORT || 6379;
 
 // redis config
