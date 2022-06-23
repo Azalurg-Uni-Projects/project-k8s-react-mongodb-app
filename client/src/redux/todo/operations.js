@@ -1,10 +1,12 @@
 import axios from "axios";
 import * as actions from './actions';
+const SERVER_IP = process.env.SERVER_IP || "127.0.0.1"
+const API_PORT = process.env.API_PORT || "5000"
 
 export const getTodoList = () => {
     return async dispatch => {
         try{
-            const response = await axios.get('http://localhost:5000/todo');
+            const response = await axios.get(`http://${SERVER_IP}:${API_PORT}/todo`);
             if(response.status === 200)
                 dispatch(actions.todoGetAction(response.data));
         }catch(error) {
@@ -16,7 +18,7 @@ export const getTodoList = () => {
 export const addTodo = (todo) => {
     return async dispatch => {
         try {
-            const response = await axios.post(`http://localhost:5000/todo`, todo);
+            const response = await axios.post(`http://${SERVER_IP}:${API_PORT}/todo`, todo);
             if(response.status === 200) 
                 dispatch(actions.todoAddAction(response.data));
         } catch(ex) {
@@ -28,7 +30,7 @@ export const addTodo = (todo) => {
 export const editTodo = (todo) => {
     return async dispatch => {
         try {
-            const response = await axios.put(`http://localhost:5000/todo/${todo._id}`, todo);
+            const response = await axios.put(`http://${SERVER_IP}:${API_PORT}/todo/${todo._id}`, todo);
             if(response.status === 201){
                 dispatch(actions.todoEditAction(response.data));
             } else {
@@ -44,7 +46,7 @@ export const editTodo = (todo) => {
 export const deleteTodo = (todo) => {
     return async dispatch => {
         try {
-            const response = await axios.delete(`http://localhost:5000/todo/${todo._id}`);
+            const response = await axios.delete(`http://${SERVER_IP}:${API_PORT}/todo/${todo._id}`);
             if(response.status === 200) 
                 dispatch(actions.todoDeleteAction(response.data));
         } catch(ex) {

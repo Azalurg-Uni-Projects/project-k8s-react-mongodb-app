@@ -13,16 +13,16 @@ app.use(cors());
 
 // db config
 
-const MONGO_HOST = process.env.MONGO_HOST || "127.0.0.1";
+const MONGO_HOST = process.env.MONGO_HOST || "127.0.0.1"
 const MONGO_PORT = process.env.MONGO_PORT || 27017;
 const MONGO_DATABASE = process.env.MONGO_DATABASE || "Kubernetes";
 const API_PORT = process.env.API_PORT || 5000;
-const REDIS_HOST = process.env.REDIS_HOST || "127.0.0.1";
+const REDIS_HOST = process.env.REDIS_HOST || "127.0.0.1"
 const REDIS_PORT = process.env.REDIS_PORT || 6379;
 
 // redis config
 
-const client = redis.createClient({ host: REDIS_HOST, port: REDIS_PORT });
+const client = redis.createClient({url: `redis://${REDIS_HOST}:${REDIS_PORT}`});
 
 async function getCache(key, res) {
   try{
@@ -221,7 +221,7 @@ app.listen(API_PORT, async () => {
   })
   .then(response => console.log(`Connected to MongoDB. Database name: "${response.connections[0].name}"`))
   .catch(error => console.error('Error connecting to MongoDB', error));
-
+  console.log("Try to connect");
   await client.connect();
    console.log(`Server running on PORT ${API_PORT}`);
 });

@@ -17,10 +17,21 @@ spec:
     spec:
       containers:
         - name: client-pod
-          image: azalurg/react-todo-app:1.0
+          image: azalurg/react-todo-app:1.2.1
           imagePullPolicy: IfNotPresent
           ports:
             - containerPort: 80
+          env:
+            - name: API_PORT
+              valueFrom:
+                configMapKeyRef:
+                  name: configmap
+                  key: API_PORT
+            - name: SERVER_IP
+              valueFrom:
+                configMapKeyRef:
+                  name: configmap
+                  key: SERVER_IP
 
 ---
 

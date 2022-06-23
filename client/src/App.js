@@ -42,6 +42,7 @@ function App() {
           <Route path="/todo" element={<TodoList/>} />
           <Route path="/" element={<Home/>} />
         </Routes>
+        <p>Version 1.1</p>
       </div>
     </Router>
   );

@@ -6,10 +6,13 @@ import { getNotesList } from '../../redux/notes/operations';
 import {getTodo} from "../../redux/todo/selectors"
 import { getTodoList } from '../../redux/todo/operations';
 
+const SERVER_IP = process.env.SERVER_IP || "127.0.0.1"
+const API_PORT = process.env.API_PORT || "5000"
+
 const Home = ({notes, todo, getNotesList, getTodoList}) => {
     const [lastTodo, setTodo] = useState()
     const [lastNotes, setNotes] = useState()
-
+    console.log(process.env.SERVER_IP);
     const done = (item) =>{
         if (!item.done) return(<div style={{color: "red"}}>Done: Todo</div>);
         else return(<div style={{color: "green"}}>Done: Finished</div>)
@@ -19,11 +22,11 @@ const Home = ({notes, todo, getNotesList, getTodoList}) => {
     useEffect(() => {
         async function k(){
             try{
-                const response1 = await axios.get('http://localhost:5000/last/todo');
+                const response1 = await axios.get(`http://${SERVER_IP}:${API_PORT}/last/todo`);
                 if(response1.status === 200){
                     setTodo(response1.data);
                 }
-                const response2 = await axios.get('http://localhost:5000/last/notes');
+                const response2 = await axios.get(`http://${SERVER_IP}:${API_PORT}/last/notes`);
                 if(response2.status === 200){
                     setNotes(response2.data);
                 }
