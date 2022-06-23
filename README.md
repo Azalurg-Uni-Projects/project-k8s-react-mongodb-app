@@ -42,6 +42,6 @@ You will find [here](https://hub.docker.com/u/azalurg) ready to use docker image
 
 ## Todo
 
--[ ] Fix Redis error
--[ ] Finish README
--[ ] Create backend dockumentation
+- [ ] Fix Redis error
+- [ ] Finish README
+- [ ] Create backend dockumentation
