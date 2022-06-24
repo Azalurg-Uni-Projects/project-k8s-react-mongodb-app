@@ -23,13 +23,29 @@ Configuration contains:
 - Kubernetes
 - Mnikube
 
+Configuration was created under Linux OS, so I don't know if it is going to work under Windows OS.
+
 ## Quick strat
 
-// todo
+1. Apply all `.yaml` files to k8s
+2. Check your minikube IP
+3. Add the following line to the bottom of the /etc/hosts file on your computer (you will need administrator access): 
+  ```
+  [minikube IP] todo-app-k8s.com
+ ```
+4. After you make this change, your web browser sends requests for todo-app-k8s.com URLs to Minikube.
 
 ## Defult URLs
 
-//todo
+Client web-app:
+```
+www.todo-app-k8s.com
+```
+
+API server:
+```
+www.todo-app-k8s.com/api
+```
 
 ## Links
 
@@ -40,8 +56,36 @@ Configuration contains:
 
 You will find [here](https://hub.docker.com/u/azalurg) ready to use docker images.
 
+## Configuration details
+
+- All deployments in the cluseter has own NodePorts. They are not crusial for app to work and they are for development purpouses. 
+<table>
+  <tr>
+    <th>Deployment</th>
+    <th>PORT</th>
+  </tr> 
+  <tr>
+    <th>Client</th>
+    <th>30080</th>
+  </tr> 
+  <tr>
+    <th>Server</th>
+    <th>30500</th>
+  </tr> 
+  <tr>
+    <th>MongoDB</th>
+    <th>30270</th>
+  </tr> 
+  <tr>
+    <th>Redis</th>
+    <th>30379</th>
+  </tr> 
+</table>
+
+- Mongo, Redis, and the API server only have one pod in my setup, but the client has 3. That's because I expect the client to have the most traffic to serve. If necessary, you can always change the number of pods with the client.
+
 ## Todo
 
 - [ ] Fix Redis error
-- [ ] Finish README
+- [X] Finish README
 - [ ] Create backend dockumentation
