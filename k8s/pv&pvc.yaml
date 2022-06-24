@@ -10,7 +10,7 @@ spec:
   accessModes:
     - ReadWriteOnce
   hostPath:
-    path: "~/k8spv-project"
+    path: "/tmp/k8spv"
     type: DirectoryOrCreate
 
 ---
@@ -25,5 +25,5 @@ spec:
   accessModes:
     - ReadWriteOnce
   resources:
-    request:
+    requests:
       storage: 128Mi

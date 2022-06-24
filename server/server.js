@@ -85,7 +85,7 @@ app.get("/last/todo", async (req, res) => {
       .then(async function (ans){
           ans = ans.sort((a, b) => {return new Date(b.date) - new Date(a.date)})
           if (!ans[0]){
-            const response = await setCache("todo", {}, res);
+            const response = await setCache("todo", "", res);
           } else {
             const response = await setCache("todo", ans[0], res);
           }
@@ -108,9 +108,9 @@ app.get("/last/notes", async (req, res) => {
           ans = ans.sort((a, b) => {return new Date(b.date) - new Date(a.date)})
           const response =await setCache("notes", ans[0], res);
           if (!ans[0]){
-            const response = await setCache("todo", {}, res);
+            const response = await setCache("notes", "", res);
           } else {
-            const response = await setCache("todo", ans[0], res);
+            const response = await setCache("notes", ans[0], res);
           }
         })
       .catch(err => res.status(500).json(err));

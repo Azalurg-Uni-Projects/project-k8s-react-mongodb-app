@@ -35,7 +35,7 @@ Configuration was created under Linux OS, so I don't know if it is going to work
   ```bash
   [minikube IP] todo-app-k8s.com
   ```
-  
+
 4. After you make this change, your web browser sends requests for todo-app-k8s.com URLs to Minikube.
 
 ## Default URLs
@@ -92,6 +92,6 @@ You will find [here](https://hub.docker.com/u/azalurg) ready to use docker image
 
 ## Todo
 
-- [ ] Fix Redis error
+- [X] Fix Redis error
 - [X] Finish README
 - [ ] Create backend documentation

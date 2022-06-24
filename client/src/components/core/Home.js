@@ -9,7 +9,6 @@ import { getTodoList } from '../../redux/todo/operations';
 const Home = ({notes, todo, getNotesList, getTodoList}) => {
     const [lastTodo, setTodo] = useState()
     const [lastNotes, setNotes] = useState()
-    console.log(process.env.SERVER_IP);
     const done = (item) =>{
         if (!item.done) return(<div style={{color: "red"}}>Done: Todo</div>);
         else return(<div style={{color: "green"}}>Done: Finished</div>)

@@ -17,7 +17,7 @@ spec:
     spec:
       containers:
         - name: client-pod
-          image: azalurg/react-todo-app:1.2.5
+          image: azalurg/react-todo-app:1.2.6
           imagePullPolicy: IfNotPresent
           ports:
             - containerPort: 80
