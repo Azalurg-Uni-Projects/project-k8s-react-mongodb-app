@@ -54,7 +54,7 @@ www.todo-app-k8s.com/api
 
 ## Links
 
-- [Helpful article](https://l.facebook.com/l.php?u=https%3A%2F%2Fgithub.com%2Freact-static%2Freact-static%2Fdiscussions%2F1465%3Ffbclid%3DIwAR2gbS7yDgDT8G92iIXwA_BenD9wYDPq3k4b_6teIAy3Bnty3IBbB2GDdg4&h=AT0I0KHHzEbTPp-gCeikGkzl09qVRsZyPntJbpAtNdR7ws3PB0ARQ_Z7ZwA3hs43I-PUu0U6ns30jDGpC2YavukwYwbbq1Lz2RsBEcSa9YZeMwfQC9lkjEfZEmT3bQ)
+- [Helpful article](https://nirajsonawane.github.io/2020/04/25/Deploy-React-Spring-Boot-MongoDB-Fullstack-application-on-Kubernetes/)
 - [Ingres and minikube setup](https://kubernetes.io/docs/tasks/access-application-cluster/ingress-minikube/)
 
 ## My Docker Hub
